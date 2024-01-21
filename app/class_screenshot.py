@@ -136,7 +136,7 @@ class ConvertToPDF:
     shutil.move(f'{save_dir}/{title}/{title}.pdf', f'{save_dir}')  # PDFファイルの移動
     print("PDF化まで完了したんだナ\n")
     
-    response = messagebox.showinfo("オワタ", "???｢PDF化まで完了したんだナ｣, icon='info'")
+    response = messagebox.showinfo("オワタ", "???｢PDF化まで完了したんだナ｣ ")
     if response == "ok":
       title_entry.delete(0, tk.END)
 
