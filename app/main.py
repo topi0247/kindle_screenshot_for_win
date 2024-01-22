@@ -41,10 +41,10 @@ if __name__ == "__main__":
   direction_radiobutton2.grid(row=2, column=1, columnspan=2)
 
   # ページめくり回数を入力する
-  repetition_label = tk.Label(frame, text='ページ数:')
+  repetition_label = tk.Label(frame, text='繰り返し数:\n(基本デフォルトでok)')
   repetition_entry = tk.Entry(frame)
   
-  repetition_entry.insert(0, "2000")
+  repetition_entry.insert(0, "5000")
   
   repetition_label.grid(row=3, column=0)
   repetition_entry.grid(row=3, column=1)

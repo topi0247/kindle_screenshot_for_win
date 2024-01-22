@@ -149,6 +149,6 @@ if __name__ == "__main__":
     response2 = messagebox.showinfo("messagebox", "メッセージボックスのokボタンを...押したね??")
   if response2 == "ok":
     for i in range(47):
-      izanami = messagebox.showinfo("izanami", "イザナミだッ!!!")
+      izanami = messagebox.showinfo("uchiha", "イザナミだッ!!!")
     if izanami == "ok":
-      messagebox.showwarning("aori", "よくここまで\nokボタン押し続けたね。\n\n\n暇なの??\n\n")
+      messagebox.showwarning("aori", "よくここまで\nokボタン押し続けたね。\n\nえ、何?\n暇なの??\n\n")
