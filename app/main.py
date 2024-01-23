@@ -6,7 +6,7 @@ if __name__ == "__main__":
   
   # GUIの作成
   root = tk.Tk()
-  root.geometry('400x230')
+  root.geometry('400x250')
   root.title('Kindle Screenshot App')
   frame = tk.Frame(root)
   frame.pack()
@@ -67,8 +67,8 @@ if __name__ == "__main__":
   select_R_button.grid(row=4, column=0, columnspan=2)
   select_L_button.grid(row=5, column=0, columnspan=2)
   
-  set_coord_label = tk.Label(frame, text="座標を設定:")
-  how_to_use = tk.Label(frame, text="(ボタンを押した後\nカーソルをあわせて\nescキーを押す)")
+  set_coord_label = tk.Label(frame, text="スクショ用の\n領域座標を設定:")
+  how_to_use = tk.Label(frame, text="1.  ボタンを押す \n 2.カーソルをおく \n 3. escキーを押す")
   
   set_coord_label.grid(row=4, rowspan=1, column=0)
   how_to_use.grid(row=5, rowspan=1, column=0)
