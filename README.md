@@ -14,14 +14,18 @@ local環境で使うには、moduleをpip3コマンドを使用してインス�
 バージョンの確認方法は、以下のどちらかで確認することができます。
 
 python3 --version 
+
 python --version 
 
 モジュールをインストールするコマンド例 (mac標準python)
+
 pip3 install pyautogui
+
 pip3 install appkit
+
 pip3 install img2pdf
 
-pip3 install pynput
+pip3 install pynput(sample/mouse_coordinate/mouse_coordinate.py 用)
 
 moduleが正しくインストールできていれば、main.pyを実行してkindleスクリーンショットのウィンドウが出てくるはずです。
 その他にも何か問題がある場合は、コード的には正しい思いますので、環境関係の問題だと思います。
