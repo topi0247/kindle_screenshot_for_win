@@ -1,15 +1,16 @@
 # kindle_screenshot
 
-This is a code for taking screenshots of Kindle on Mac using Python for Japanese.
+This is a code for taking screenshots of Kindle on Mac using Python for Japanese people.
 
 これは、pythonのtkinterを学習するためのスクリプト集です。
 
 【注意点】
-main.pyが、スクリーンショットするスクリプトですが、macOSでしか動きません。AppKitというモジュールがmacOS専用のためです。このモジュールは、ウィンドウハンドルを取得するために使います。
-Windowsの環境では、確かpywinautoのようなmoduleがあったっけな。いずれにせよ、以前はwindowsのPCでスクショしていたので、実現はできるはずです。
-Docker環境で作らない理由としては、DockerはLinuxベースであり、mac専用のmoduleが稼働できないからです。
-macの仮想環境をつくるDockerのようなものがあれば行けそうですが。現段階では、それについて調べる、ということすらできてないですね。
+main.pyがスクリーンショットするスクリプトとなっておりますが、残念ながらmacOSでしか動きません。というのも、AppKitというモジュールがmacOS専用であるためです。因みに、このモジュールはmacのウィンドウハンドルを取得するために使っております。
+Windowsの環境では、pywinautoのようなwindows専用のモジュールがあると思います。以前はwindowsのPCでスクショしていたので、実現はできるはずです。
 
+Docker環境で作らない理由としては、DockerはLinuxベースであり、mac専用のmoduleが稼働できないからです。macの仮想環境をつくるDockerのようなものがあれば行けそうですが。現段階では取り組んでいません。
+
+そのため、local環境に落とし込んで使うかたちになります。
 local環境で使うには、moduleをpip3コマンドを使用してインストールする必要があります。mac標準のpythonやpyenvなど、python環境によっても多少異なります。pip3コマンドはpythonバージョン3で使用し、pipコマンドはpythonバージョン2で使用します。
 バージョンの確認方法は、以下のどちらかで確認することができます。
 
