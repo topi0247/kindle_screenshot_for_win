@@ -13,7 +13,7 @@ def start_timer():
 
 def reset_timer():
     # タイマーをリセットし、ラベルを「00:00」に設定
-    window.after_cancel(timer)
+    root.after_cancel(timer)
     timer_label.config(text="00:00")
 
 def count_down(count):
@@ -22,23 +22,23 @@ def count_down(count):
     seconds = count % 60
     timer_label.config(text=f"{minutes:02d}:{seconds:02d}")
     if count > 0:
-        timer = window.after(1000, count_down, count - 1)
+        timer = root.after(1000, count_down, count - 1)
     else:
         timer_label.config(text="終了！")
 
-window = tk.Tk()
-window.title("タイマー")
+root = tk.Tk()
+root.title("タイマー")
 
-entry = tk.Entry(window)
+entry = tk.Entry(root)
 entry.pack()
 
-start_button = tk.Button(window, text="スタート", command=start_timer)
+start_button = tk.Button(root, text="スタート", command=start_timer)
 start_button.pack()
 
-reset_button = tk.Button(window, text="リセット", command=reset_timer)
+reset_button = tk.Button(root, text="リセット", command=reset_timer)
 reset_button.pack()
 
-timer_label = tk.Label(window, text="00:00", font=("Helvetica", 48))
+timer_label = tk.Label(root, text="00:00", font=("Helvetica", 48))
 timer_label.pack()
 
-window.mainloop()
+root.mainloop()

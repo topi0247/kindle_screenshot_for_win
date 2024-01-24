@@ -22,12 +22,12 @@ if __name__ == "__main__":
   save_dir_label = tk.Label(frame, text='保存先:')
   save_dir_entry = tk.Entry(frame)
 
+  save_dir_label.grid(row=1, column=0)
+  save_dir_entry.grid(row=1, column=1)
+
   # 保存先を設定 (クラスメソッドに参照渡し)
   browsebutton = tk.Button(frame, text="参照", command=lambda: Screenshot.browsefunc(save_dir_entry))
   browsebutton.grid(row=1, column=2, columnspan=2)
-
-  save_dir_label.grid(row=1, column=0)
-  save_dir_entry.grid(row=1, column=1)
 
   # ページめくり方向選択する
   direction_label = tk.Label(frame, text='ページの捲る方向:')
@@ -68,10 +68,10 @@ if __name__ == "__main__":
   select_L_button.grid(row=5, column=0, columnspan=2)
   
   set_coord_label = tk.Label(frame, text="スクショ用の\n領域座標を設定:")
-  how_to_use = tk.Label(frame, text="1.  ボタンを押す \n 2.カーソルをおく \n 3. escキーを押す")
+  how_to_set_coord = tk.Label(frame, text="1.  ボタンを押す \n 2.カーソルをおく \n 3. escキーを押す")
   
   set_coord_label.grid(row=4, rowspan=1, column=0)
-  how_to_use.grid(row=5, rowspan=1, column=0)
+  how_to_set_coord.grid(row=5, rowspan=1, column=0)
 
   screenshot_button = tk.Button(frame,
                                 text='スクショしてPDFにする', 
