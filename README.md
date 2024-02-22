@@ -1,5 +1,7 @@
 # kindle_screenshot
 
+※[kindle_screenshot](https://github.com/Dingu-suke/kindle_screenshot)をWindowsでできるようにしているものです
+
 This is a code for taking screenshots of Kindle on Mac using Python for Japanese people.
 
 これは、pythonのtkinterを学習するためのスクリプト集です。
