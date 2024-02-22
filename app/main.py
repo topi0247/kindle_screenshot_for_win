@@ -83,7 +83,7 @@ if __name__ == "__main__":
                                                       repetition_entry.get(),
                                                       upper_left_label.cget("text"),
                                                       lower_right_label.cget("text"),
-                                                      title_entry  # 参照渡し
+                                                      title_entry
                                                       ))
   screenshot_button.grid(row=10, rowspan=3, column=1)
 

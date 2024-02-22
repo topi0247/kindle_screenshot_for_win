@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import filedialog
-import AppKit
 import os
 import time
 import glob
@@ -11,6 +10,7 @@ import img2pdf
 import sys
 from tkinter import  messagebox
 from class_coordinate import Coordinate
+import pygetwindow as gw
 
 class InvalidInputError(Exception):
   pass
@@ -56,15 +56,22 @@ class Screenshot:
     if upper_left_coords is None or lower_right_coords is None:
       return  # 必要な座標が取得できない場合は処理を中断
     
-    # Kindle のウィンドウを探す
-    all_windows = AppKit.NSWorkspace.sharedWorkspace().runningApplications()
-    # 一致するウィンドウを変数に格納する
-    for window in all_windows:
-      if window.localizedName() == 'Kindle':
-        kindle = window
-        break
-    else:
-      raise InvalidInputError("Kinldeのウィンドウが見つかりませんでした。")
+    # Kindleウィンドウのタイトルを指定
+    kindle_window_title = "Kindle"
+
+    # 指定したタイトルを含むウィンドウを取得
+    windows = gw.getWindowsWithTitle(kindle_window_title)
+    kindle_window = None
+    for window in windows:
+        if kindle_window_title in window.title:
+            kindle_window = window
+            break
+
+    if kindle_window is None:
+        raise InvalidInputError("タイトルのウィンドウが見つかりませんでした。")
+
+    kindle_window.activate()
+    time.sleep(1)
 
     os.makedirs(f'{save_dir}/{title}', exist_ok=True)
 
@@ -81,7 +88,7 @@ class Screenshot:
     prev_screenshot = None
     for i in range(int(repetition)):
       # ウィンドウハンドルをkindleにわたす
-      kindle.activateWithOptions_(AppKit.NSApplicationActivateIgnoringOtherApps)
+      # kindle.activateWithOptions_(AppKit.NSApplicationActivateIgnoringOtherApps)
       # スクショを撮る
       screenshot = pyautogui.screenshot(region=(upper_left_x, upper_left_y,
                                                 lower_right_x-upper_left_x, lower_right_y-upper_left_y))
@@ -92,7 +99,7 @@ class Screenshot:
         pyautogui.press('right')
       else:
         pyautogui.press('left')
-      
+
       # 同一ページをスクショしたら停止する。
       if prev_screenshot is not None:
         width, height =screenshot.size
@@ -101,8 +108,8 @@ class Screenshot:
         if screenshot_rgb == prev_screenshot_rgb:
           print('同一ページを検出')
           os.remove(f'{save_dir}/{title}/{title}_{i}.png')
-          os.remove(f'{save_dir}/{title}/{title}_{i-1}.png')
-          os.remove(f'{save_dir}/{title}/{title}_{i-2}.png')
+          # os.remove(f'{save_dir}/{title}/{title}_{i-1}.png')
+          # os.remove(f'{save_dir}/{title}/{title}_{i-2}.png')
           break
       prev_screenshot = screenshot
       time.sleep(0.3)
