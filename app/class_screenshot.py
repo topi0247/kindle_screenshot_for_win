@@ -20,6 +20,21 @@ class Screenshot:
     self.master = master
     self.coord_L = Coordinate(master, label_L)
     self.coord_R = Coordinate(master, label_R)
+    # Kindleウィンドウのタイトルを指定
+    kindle_window_title = "Kindle"
+    # 指定したタイトルを含むウィンドウを取得
+    windows = gw.getWindowsWithTitle(kindle_window_title)
+    kindle_window = None
+    for window in windows:
+      if kindle_window_title in window.title:
+        kindle_window = window
+        break
+
+    if kindle_window:
+      kindle_window.activate()
+      time.sleep(1)
+    else:
+      print(f"'{kindle_window_title}' タイトルのウィンドウが見つかりませんでした。")
 
   def browsefunc(save_dir_entry):
     filename = filedialog.askdirectory()
@@ -56,22 +71,8 @@ class Screenshot:
     if upper_left_coords is None or lower_right_coords is None:
       return  # 必要な座標が取得できない場合は処理を中断
     
-    # Kindleウィンドウのタイトルを指定
-    kindle_window_title = "Kindle"
 
-    # 指定したタイトルを含むウィンドウを取得
-    windows = gw.getWindowsWithTitle(kindle_window_title)
-    kindle_window = None
-    for window in windows:
-        if kindle_window_title in window.title:
-            kindle_window = window
-            break
-
-    if kindle_window is None:
-        raise InvalidInputError("タイトルのウィンドウが見つかりませんでした。")
-
-    kindle_window.activate()
-    time.sleep(1)
+    
 
     os.makedirs(f'{save_dir}/{title}', exist_ok=True)
 
